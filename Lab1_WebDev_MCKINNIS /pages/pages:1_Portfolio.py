@@ -1,7 +1,8 @@
 import streamlit as st
 import info
 import pandas as pd
-
+import sidebar
+sidebar.show_sidebar()
 #About Me
 def about_me_section():
     st.header("About Me")
