@@ -32,10 +32,10 @@ course_data = {
     }
 experience_data = {
     "Coach at GAC": (["- Coached instead of playing an dpoured into others",
-                                                                          "- increased support from fans", "-Impressed and left a good mark on the school"],"Images/gac.png"),
+                                                                          "- increased support from fans", "-Impressed and left a good mark on the school"],"gac.png"),
     "Board Member for BSAA committee":(["- Handle, promote, and communicate/support Black softball atheletes",
-                                                           "- improved racial tensions and black beleif"],"Images/bsa.png"),
-    "Head member of HS committee":(["- Managed and handled most Honors Society activities within the school in regards to tutoring and edu."],"Images/gt.png")
+                                                           "- improved racial tensions and black beleif"],"bsa.png"),
+    "Head member of HS committee":(["- Managed and handled most Honors Society activities within the school in regards to tutoring and edu."],"gt.png")
 
 }
 
@@ -67,7 +67,7 @@ spoken_data = {
     "French": "Fluent except for some words",
 }
 leadership_data = {
-    "Coached at MSP All American Games": (["- Elected as one of the top coaches and earned my first win"],"Images/msp.png"),
+    "Coached at MSP All American Games": (["- Elected as one of the top coaches and earned my first win"],"msp.png"),
 
 }
 activity_data={
