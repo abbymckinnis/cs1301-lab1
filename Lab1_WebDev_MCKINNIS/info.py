@@ -2,7 +2,7 @@
 #This File will contain the information to be displayed in your portfolio
 
 #CHANGE BELOW
-profile_picture = "Images/gt.png"
+profile_picture = "gt.png"
 about_me = "I'm Abby McKinnnis. I am a CS Major at GA  Tech and I also play for the womens softball team!. "
 
 
