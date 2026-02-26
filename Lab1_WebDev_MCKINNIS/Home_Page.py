@@ -1,6 +1,8 @@
 import streamlit as st
 # Title of App
 st.title("Web Development Lab01")
+st.sidebar.write("Sidebar is running ✅")
+st.write("Home is running ✅")
 
 # Assignment Data 
 # TODO: Fill out your team number, section, and team members
