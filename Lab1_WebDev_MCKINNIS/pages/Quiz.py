@@ -1,25 +1,28 @@
 import streamlit as st
 from pathlib import Path
 
-# Safe image path setup
+# Safe image path setup (works on Streamlit Cloud)
 BASE_DIR = Path(__file__).resolve().parent
 IMAGE_DIR = BASE_DIR.parent / "images"
 
 st.set_page_config(page_title="Quiz", page_icon="🧠", layout="centered")
 
+# Emoji-style result images (hosted online so you don't need extra files)
+RESULT_IMAGES = {
+    "Calm": "https://em-content.zobj.net/source/apple/391/relieved-face_1f60c.png",
+    "Competitive": "https://em-content.zobj.net/source/apple/391/fire_1f525.png",
+    "Chaotic": "https://em-content.zobj.net/source/apple/391/zany-face_1f92a.png"
+}
+
 st.title("Interactive Personality Quiz 🧠")
 st.write("Answer the questions below to get your result!")
 
-# --- Top image row: me + merch ONLY ---
+# --- Top images: me + merch ONLY (NO WORDS UNDER THEM) ---
 col1, col2 = st.columns(2)
-
 with col1:
-    st.image(str(IMAGE_DIR / "me.png"), width=180)
-    st.caption("About Me")
-
+    st.image(str(IMAGE_DIR / "me.png"), width=160)
 with col2:
-    st.image(str(IMAGE_DIR / "merch.png"), width=180)
-    st.caption("Merch")
+    st.image(str(IMAGE_DIR / "merch.png"), width=160)
 
 st.divider()
 
@@ -35,10 +38,11 @@ with tabs[2]:
     st.write("Extra features used:")
     st.write("- Tabs")
     st.write("- Progress bar")
-    st.write("- Image layout")
+    st.write("- Emoji result image")
+    st.write("- Balloons")
 
 with tabs[0]:
-    # --- Questions ---
+    # --- Questions (5 total, 3+ types) ---
     q1 = st.radio("1) Pick a vibe:", ["Locked in", "Chill", "Chaos"], index=None)  # NEW
     q2 = st.multiselect("2) Pick 2 things you love:", ["Music", "Sports", "Food", "Sleep", "Travel"])  # NEW
     q3 = st.slider("3) How social are you? (0-10)", 0, 10, 5)  # NEW
@@ -83,6 +87,7 @@ with tabs[0]:
     else:
         chaotic += 1
 
+    # --- Progress bar ---
     answered = sum([
         q1 is not None,
         len(q2) > 0,
@@ -92,11 +97,13 @@ with tabs[0]:
     ])
     st.progress(answered / 5)
 
+    # --- Result ---
     if st.button("Get my result!"):
         scores = {"Calm": calm, "Competitive": competitive, "Chaotic": chaotic}
         result = max(scores, key=scores.get)
 
         st.success(f"Your result is: **{result}** 🎉")
+        st.image(RESULT_IMAGES[result], width=120)
         st.balloons()
 
         if result == "Calm":
