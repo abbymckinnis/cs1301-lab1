@@ -1,7 +1,7 @@
 import streamlit as st
 from pathlib import Path
 
-# Build a safe absolute path to /images from inside /pages
+# Safe image path setup
 BASE_DIR = Path(__file__).resolve().parent
 IMAGE_DIR = BASE_DIR.parent / "images"
 
@@ -10,33 +10,50 @@ st.set_page_config(page_title="Quiz", page_icon="🧠", layout="centered")
 st.title("Interactive Personality Quiz 🧠")
 st.write("Answer the questions below to get your result!")
 
+# --- Small image strip at the top (INCLUDING merch.png) ---
+top_images = [
+    ("gt.png", "Georgia Tech"),
+    ("msp.png", "MSP"),
+    ("gac.png", "GAC"),
+    ("bsa.png", "BSAA"),
+    ("all american.png", "All American"),
+    ("me.png", "Me"),
+    ("merch.png", "Merch"),
+]
+
+st.markdown("#### 📸 Quick Highlights")
+cols = st.columns(4)  # 4 across; wraps automatically in rows
+for i, (fname, cap) in enumerate(top_images):
+    with cols[i % 4]:
+        st.image(str(IMAGE_DIR / fname), width=150)
+        st.caption(cap)
+
+st.divider()
+
 tabs = st.tabs(["📝 Quiz", "ℹ️ How It Works", "⭐ Extra"])
 
 with tabs[1]:
-    st.write("You’ll answer 5 questions. Your choices add points to different personality types.")
-    st.write("At the end, the type with the most points is your result!")
+    st.write(
+        "You’ll answer 5 questions. Each choice adds points to a personality type. "
+        "The type with the most points becomes your result!"
+    )
 
 with tabs[2]:
-    st.write("Extra features:")
+    st.write("Extra features used:")
     st.write("- Tabs")
     st.write("- Progress bar")
-    st.write("- Balloons on submit")
+    st.write("- Image gallery at top")
+    st.write("- Balloons")
 
 with tabs[0]:
-    st.image(str(IMAGE_DIR / "gt.png"), use_container_width=True)
-
+    # --- Questions ---
     q1 = st.radio("1) Pick a vibe:", ["Locked in", "Chill", "Chaos"], index=None)  # NEW
     q2 = st.multiselect("2) Pick 2 things you love:", ["Music", "Sports", "Food", "Sleep", "Travel"])  # NEW
-
-    st.image(str(IMAGE_DIR / "msp.png"), use_container_width=True)
-
     q3 = st.slider("3) How social are you? (0-10)", 0, 10, 5)  # NEW
     q4 = st.number_input("4) Choose a number (1-100):", min_value=1, max_value=100, value=7)  # NEW
-
-    st.image(str(IMAGE_DIR / "gac.png"), use_container_width=True)
-
     q5 = st.selectbox("5) Pick a snack:", ["Chips", "Fruit", "Candy", "Protein bar"])  # NEW
 
+    # --- Scoring ---
     calm = 0
     competitive = 0
     chaotic = 0
@@ -74,18 +91,13 @@ with tabs[0]:
     else:
         chaotic += 1
 
-    answered = 0
-    if q1 is not None:
-        answered += 1
-    if len(q2) > 0:
-        answered += 1
-    if q3 is not None:
-        answered += 1
-    if q4 is not None:
-        answered += 1
-    if q5 is not None:
-        answered += 1
-
+    answered = sum([
+        q1 is not None,
+        len(q2) > 0,
+        q3 is not None,
+        q4 is not None,
+        q5 is not None
+    ])
     st.progress(answered / 5)
 
     if st.button("Get my result!"):
@@ -96,11 +108,8 @@ with tabs[0]:
         st.balloons()
 
         if result == "Calm":
-            st.image(str(IMAGE_DIR / "bsa.png"), use_container_width=True)
-            st.write("You’re steady, grounded, and you keep people level.")
+            st.write("You’re steady, grounded, and the calm in every room.")
         elif result == "Competitive":
-            st.image(str(IMAGE_DIR / "all american.png"), use_container_width=True)
-            st.write("You’re focused, driven, and love chasing big goals.")
+            st.write("You’re driven, focused, and always chasing the next goal.")
         else:
-            st.image(str(IMAGE_DIR / "gac.png"), use_container_width=True)
-            st.write("You’re spontaneous, high-energy, and always down for something new.")
+            st.write("You’re high-energy, spontaneous, and always down for something fun.")
