@@ -1,81 +1,55 @@
-# ---------- About Me ----------
-profile_picture = "images/gt.png"
+profile_picture = "../images/gt.png"
 
 about_me = (
-    "Hi! I'm Abby McKinnis. I'm a student at Georgia Tech and a student-athlete. "
-    "I’m interested in tech, leadership, and building cool projects!"
+    "Hi! I'm Abby McKinnis. I'm a student at Georgia Tech and a student-athlete."
 )
 
-# ---------- Links (optional) ----------
-linkedin_image_url = "https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg"
-github_image_url = "https://cdn-icons-png.flaticon.com/256/25/25231.png"
-email_image_url = "https://logowik.com/content/uploads/images/513_email.jpg"
-
-my_linkedin_url = "https://www.linkedin.com/"
-my_github_url = "https://github.com/"
-my_email_address = "example@email.com"
-
-# ---------- Education ----------
 education_data = {
-    "Degree": "Bachelor of Science (Computer Science)",
-    "Institution": "Georgia Institute of Technology",
+    "Degree": "BS Computer Science",
+    "Institution": "Georgia Tech",
     "Location": "Atlanta, GA",
     "Graduation Date": "2029",
     "GPA": "4.0"
 }
 
 course_data = {
-    "code": ["CS 1301", "MATH 1552", "CS 1331"],
-    "names": ["Intro to Computing", "Calculus II", "Intro to OOP"],
-    "semester_taken": ["Spring 2026", "Spring 2026", "Future"],
-    "skills": ["Python fundamentals", "Integration + series", "Java + OOP basics"]
+    "code": ["CS 1301", "MATH 1552"],
+    "names": ["Intro to Computing", "Calculus II"],
+    "semester_taken": ["Spring 2026", "Spring 2026"],
+    "skills": ["Python", "Integration"]
 }
 
-# ---------- Experience ----------
 experience_data = {
     "Coach at GAC": (
-        [
-            "- Coached and supported athletes",
-            "- Led practices and helped improve performance",
-            "- Built strong team culture"
-        ],
-        "images/gac.png"
+        ["- Coached athletes", "- Built team culture"],
+        "../images/gac.png"
     ),
-    "Board Member (BSAA Committee)": (
-        [
-            "- Supported Black softball athletes",
-            "- Promoted unity and inclusion",
-            "- Helped plan events/initiatives"
-        ],
-        "images/bsa.png"
-    ),
+    "Board Member (BSAA)": (
+        ["- Supported Black softball athletes"],
+        "../images/bsa.png"
+    )
 }
 
-# ---------- Projects ----------
 projects_data = {
-    "Streamlit Portfolio": "Built a multi-page Streamlit portfolio website.",
-    "Interactive Personality Quiz": "Created a 5-question quiz with multiple input types, images, and 3 result types."
+    "Streamlit Portfolio": "Multi-page Streamlit portfolio",
+    "Interactive Quiz": "5-question quiz with results"
 }
 
-# ---------- Programming Skills ----------
 programming_data = {
     "Python": 85,
     "Java": 60,
     "C": 40
 }
 
-# ---------- Leadership ----------
 leadership_data = {
     "MSP All American Games": (
-        ["- Selected to participate and represent the program"],
-        "images/msp.png"
+        ["- Selected participant"],
+        "../images/msp.png"
     )
 }
 
-# ---------- Activities ----------
 activity_data = {
     "All American Games": [
-        "- Competed with and supported elite athletes",
-        "- Gained experience in high-level environments"
+        "- Competed at elite level"
     ]
 }
