@@ -10,23 +10,16 @@ st.set_page_config(page_title="Quiz", page_icon="🧠", layout="centered")
 st.title("Interactive Personality Quiz 🧠")
 st.write("Answer the questions below to get your result!")
 
-# --- Small image strip at the top (INCLUDING merch.png) ---
-top_images = [
-    ("gt.png", "Georgia Tech"),
-    ("msp.png", "MSP"),
-    ("gac.png", "GAC"),
-    ("bsa.png", "BSAA"),
-    ("all american.png", "All American"),
-    ("me.png", "Me"),
-    ("merch.png", "Merch"),
-]
+# --- Top image row: me + merch ONLY ---
+col1, col2 = st.columns(2)
 
-st.markdown("#### 📸 Quick Highlights")
-cols = st.columns(4)  # 4 across; wraps automatically in rows
-for i, (fname, cap) in enumerate(top_images):
-    with cols[i % 4]:
-        st.image(str(IMAGE_DIR / fname), width=150)
-        st.caption(cap)
+with col1:
+    st.image(str(IMAGE_DIR / "me.png"), width=180)
+    st.caption("About Me")
+
+with col2:
+    st.image(str(IMAGE_DIR / "merch.png"), width=180)
+    st.caption("Merch")
 
 st.divider()
 
@@ -42,8 +35,7 @@ with tabs[2]:
     st.write("Extra features used:")
     st.write("- Tabs")
     st.write("- Progress bar")
-    st.write("- Image gallery at top")
-    st.write("- Balloons")
+    st.write("- Image layout")
 
 with tabs[0]:
     # --- Questions ---
