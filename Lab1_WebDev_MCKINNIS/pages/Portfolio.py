@@ -1,40 +1,4 @@
-import streamlit as st
-import pandas as pd
-import info
-
-st.set_page_config(page_title="Portfolio", page_icon="📌", layout="wide")
-
-
-# ---------- Sidebar Links ----------
-def links_section():
-    st.sidebar.header("Links")
-
-    linkedin_link = f'<a href="{info.my_linkedin_url}" target="_blank"><img src="{info.linkedin_image_url}" width="70"></a>'
-    github_link = f'<a href="{info.my_github_url}" target="_blank"><img src="{info.github_image_url}" width="60"></a>'
-    email_link = f'<a href="mailto:{info.my_email_address}"><img src="{info.email_image_url}" width="70"></a>'
-
-    st.sidebar.markdown("LinkedIn", unsafe_allow_html=True)
-    st.sidebar.markdown(linkedin_link, unsafe_allow_html=True)
-
-    st.sidebar.markdown("GitHub", unsafe_allow_html=True)
-    st.sidebar.markdown(github_link, unsafe_allow_html=True)
-
-    st.sidebar.markdown("Email", unsafe_allow_html=True)
-    st.sidebar.markdown(email_link, unsafe_allow_html=True)
-
-
-# ---------- About Me ----------
-def about_me_section():
-    st.title("Portfolio")
-    st.header("About Me")
-    st.image(info.profile_picture, width=220)
-    st.write(info.about_me)
-    st.divider()
-
-
-# ---------- Education ----------
-def education_section(education_data, course_data):
-    st.header("Education")
+Lab1_WebDev_MCKINNIS    st.header("Education")
     st.subheader(education_data["Institution"])
     st.write(f"**Degree:** {education_data['Degree']}")
     st.write(f"**Location:** {education_data['Location']}")
