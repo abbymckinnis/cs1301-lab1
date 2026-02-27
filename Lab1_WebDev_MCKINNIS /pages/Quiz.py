@@ -32,11 +32,11 @@ with tabs[0]:
     # Show images (requirement)
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.image("Images/gt.png", use_container_width=True)
+        st.image("images/gt.png", use_container_width=True)
     with col2:
-        st.image("Images/msp.png", use_container_width=True)
+        st.image("images/msp.png", use_container_width=True)
     with col3:
-        st.image("Images/gac.png", use_container_width=True)
+        st.image("images/gac.png", use_container_width=True)
 
     st.divider()
 
@@ -141,13 +141,13 @@ with tabs[0]:
                 "You are thoughtful, expressive, and imaginative. "
                 "You enjoy learning people and creating meaning."
             )
-            st.image("Images/bsa.png", use_container_width=True)
+            st.image("images/bsa.png", use_container_width=True)
 
         else:
             st.write(
                 "You bring calm energy. You value balance, peace, and enjoyment."
             )
-            st.image("Images/gac.png", use_container_width=True)
+            st.image("images/gac.png", use_container_width=True)
 
         # EXTRA CREDIT
         summary = f"Quiz Result: {result}\n\nPoints Breakdown:\n{points}"
